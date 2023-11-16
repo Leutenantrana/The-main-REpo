@@ -42,33 +42,79 @@ public class dietmaker {
 
 
         Person person = new Person(name, age, height, weight, isMale, activityLevel);
+        System.out.println(" ");
+        System.out.println(" ");
 
         System.out.println(person);
         System.out.println(" ");
         System.out.println(" ");
-        System.out.println("the protein requirement of the person is " + person.protienReq() + " grams ");
+
+        System.out.println("Press p to know your Protein Requirement and c for your carb requirement and b for both");
+        System.out.println(" ");
+
+       
+        
+        String input = String.valueOf(scan.nextLine());
+        System.out.println(" ");
+
+    
+        if (input.equals("p")) {
+
+            System.out.println("You need " + person.protienReq() + " grams of protein in your diet");
+            System.out.println(" ");
+
+        }else{
+            if (input.equals("c")) {
+                System.out.println("You need " + person.getCarbsReq() + " grams of carbs in your diet" );
+                System.out.println(" ");
+
+            }else{
+                System.out.println("You need " + person.protienReq() + " grams of protein in your diet");
+                System.out.println(" ");
+                System.out.println("You need " + person.getCarbsReq() + " grams of carbs in your diet" );
+                System.out.println(" ");
+
+
+            }
+
+            
+        }
+
+
+       
+
+       
 
 
 
-        System.out.println("Let's first set our carbs diet");
+       
+      
+    
         System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
+        
+
+
       
 
 
+       
 
-        // ______________________________________________________________________________________
+
+      
 
 
-        System.out.println("your carb requirement is " + person.getCarbsReq() + " grams" );
+        System.out.println("Let's first set your carb diet!!");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("Your carb requirement is :" + person.getCarbsReq());
+        System.out.println(" ");
 
         meal meal1 = new meal("sweet potato", 80, 2, 21);
         meal meal2 = new meal("corn", 99, 3.27, 20);
         meal meal3 = new meal("Brown Rice", 112, 2.3, 24);
         meal meal4 = new meal("Oats", 374, 17, 66);
         meal meal5 = new meal("Banana", 51, 0.6, 11.6);
-        meal meal6 = new meal("Applre", 51, 0.6, 11.6);
+        meal meal6 = new meal("Apple", 51, 0.6, 11.6);
         meal meal7 = new meal("kidney Beans", 127, 8.67, 22.8);
         meal meal8 = new meal("Lentrils", 116, 9.02, 20.8);
 
@@ -105,13 +151,16 @@ public class dietmaker {
 
        
 
-        System.out.println("Do you want to know the various diets and their nutrient content?? (press y for yes and n for no)");
+        System.out.println("Do you want to know about the intensive meals and their nutrient content?? (press y for yes and n for no)");
         String S = String.valueOf(scan.nextLine());
         System.out.println(" ");
         System.out.println(" ");
 
         if (S.equals("y")) {
              System.out.println("The carb intensive meals and their contents are as follow");
+
+             System.out.println(" ");
+             System.out.println(" ");
 
                 System.out.println( " meal1 : " + meal1);
                 System.out.println(" ");
@@ -131,6 +180,9 @@ public class dietmaker {
                 System.out.println(" meal7 : " +meal7);
                 System.out.println(" ");
                 System.out.println(" meal8 : " +meal8);
+                System.out.println(" ");
+                System.out.println("Enter the number of the meal to include it for example 1 for meal1");
+                System.out.println(" ");
 
              
 
@@ -146,8 +198,7 @@ public class dietmaker {
         // __________________________________________________________________________________________________________________
 
 
-        System.out.println("enter your first meal");
-        int num = Integer.valueOf(scan.nextLine());
+        //----------------------------------------Arraylist of meals to help in taking input from user------------------------------------------------
 
         ArrayList<meal> meall = new ArrayList<>();
 
@@ -168,6 +219,17 @@ public class dietmaker {
         meall.add(meal16);
         meall.add(meal17);
 
+
+        
+
+        //------------------------------------------------------------------------------------------------------------------------------------//
+        //-----------------------------------Setting Carb Diet Asking for First Diet----------------------------------------------------------//
+
+
+        System.out.println("Add your first meal!");
+        int num = Integer.valueOf(scan.nextLine());
+
+        
         
 
 
@@ -205,17 +267,27 @@ public class dietmaker {
 
 
         System.out.println(" ");
-        System.out.println("Enter the amount of meal that you want to take according to your needs (eg for 5 grams enter 5.0 )" + "\n" + " check above the required card and the carb in various meal and then decide your amount");
+        System.out.println("If you enter Amount = 100, It means you want 100 gram of carb from that meal. " +"\n" +  "Diet planner will now tell you the amount of meal you need to take.");
+        System.out.println(" ");
+        System.out.println("Enter the amount of meal!! (eg for 5 grams enter 5.0 ) " );
         double amount = Double.parseDouble(scan.nextLine());
+        System.out.println(" ");
+        System.out.println(" ");
 
 
         // _________________________________________________________________________________________________________________
 
        System.out.println(CarbPlanner.setCarbDiet(demo, amount)); 
 
+      
+
+      
+
        //    _________________________________________________________________________________________________________________
+
+       //-----------------------------------------------Setting Carb Diet Second diet----------------------------------------------------------//
         System.out.println(" ");
-        System.out.println("enter your second meal");
+        System.out.println("Add your next meal");
         int num2 = Integer.valueOf(scan.nextLine());
 
         
@@ -227,7 +299,7 @@ public class dietmaker {
         }
 
         System.out.println(" ");
-        System.out.println("Enter the amount of meal that you want to take according to your needs (eg for 5 grams enter 5.0 )" + "\n" + " check above the required card and the carb in various meal and then decide your amount");
+        System.out.println("Enter the amount of meal");
         double amount1 = Double.parseDouble(scan.nextLine());
 
         System.out.println(CarbPlanner.setCarbDiet(demo, amount1)); 
@@ -238,10 +310,7 @@ public class dietmaker {
         // _______________________________________________________________________________________________________________________
 
        
-            
-
-                
-                if (CarbPlanner.getCarbCount()<person.getCarbsReq()) {
+        if (CarbPlanner.getCarbCount()<person.getCarbsReq()) {
                     System.out.println(" ");
                     System.out.println("enter your meal");
                     int num3 = Integer.valueOf(scan.nextLine());
@@ -255,7 +324,7 @@ public class dietmaker {
                     }
 
                     System.out.println(" ");
-                    System.out.println("Enter the amount of meal that you want to take according to your needs (eg for 5 grams enter 5.0 )" + "\n" + " check above the required card and the carb in various meal and then decide your amount");
+                    System.out.println("Enter the amount of meal!! (eg for 5 grams enter 5.0 ) ");
                     double amount2 = Double.parseDouble(scan.nextLine());
 
                     System.out.println(CarbPlanner.setCarbDiet(demo, amount2)); 
@@ -264,140 +333,237 @@ public class dietmaker {
 
 
             
-                }
-                if (CarbPlanner.getCarbCount()<person.getCarbsReq()) {
-                    System.out.println(" ");
-                    System.out.println("enter your meal");
-                    int num4 = Integer.valueOf(scan.nextLine());
+        }
+        if (CarbPlanner.getCarbCount()<person.getCarbsReq()) {
+            System.out.println(" ");
+            System.out.println("enter your meal");
+            int num4 = Integer.valueOf(scan.nextLine());
 
                     
 
-                    for(int i =0; i<8; i++){
-                        if (num4 ==i+1){
+            for(int i =0; i<8; i++){
+                if (num4 ==i+1){
+                    demo = meall.get(i);
+                 }
+            }
+        
+            System.out.println(" ");
+            System.out.println("Enter the amount of meal!! (eg for 5 grams enter 5.0 ) ");
+            double amount3 = Double.parseDouble(scan.nextLine());
+            System.out.println(" ");
+            System.out.println(" ");
+
+            System.out.println(CarbPlanner.setCarbDiet(demo, amount3)); 
+
+            System.out.println(" ");
+
+
+            
+        }
+                      
+
+                
+               
+                 
+
+            
+                
+
+
+            System.out.println("Do you want to make your protein diet too???");
+            System.out.println(" ");
+            System.out.println("Enter y for yea and n for no");
+            System.out.println(" ");
+            String P = String.valueOf(scan.nextLine());
+            System.out.println(" ");
+            Dietplanner proteinPlanner = new Dietplanner(person);
+            if (P.equals("y")) {
+
+                 System.out.println("let's now create your protein diet");
+            
+                System.out.println("  ");
+
+                System.out.println(" ");
+
+                //______________________________________________________________________________________________________________________________
+                //providing the information of protein intensive diet to the user
+
+                System.out.println("Do you want to know the carb intensive meals and their nutrient content?? (press y for yes and n for no)");
+                String Su = String.valueOf(scan.nextLine());
+                System.out.println(" ");
+                System.out.println(" ");
+
+                    if (Su.equals("y")) {
+                        System.out.println("The carb intensive meals and their contents are as follow");
+
+                        System.out.println( " meal9 : " + meal9);
+                        System.out.println(" ");
+
+                        System.out.println( " meal10 : " +meal10);
+                        System.out.println(" ");
+
+                        System.out.println(" meal11 : " +meal11);
+                        System.out.println(" ");
+                        System.out.println(" meal12 : " +meal12);
+                        System.out.println(" ");
+                        System.out.println(" meal13: " +meal13);
+                        System.out.println(" ");
+
+                        System.out.println(" meal14: " +meal14);
+                        System.out.println(" ");
+                        System.out.println(" meal15: " +meal15);
+                        System.out.println(" ");
+                        System.out.println(" meal16: " +meal16);
+                        System.out.println(" ");
+                        System.out.println(" meal17: " +meal17);
+                        System.out.println("");
+
+                       
+
+                    
+
+
+                    
+                    }else {
+                        System.out.println( "you choose no");
+                    }
+
+
+                    System.out.println("Your protein requirement is:" + person.protienReq());
+                    System.out.println(" ");
+
+
+                //______________________________________________________________________________________________________________________________
+
+                // Dietplanner proteinPlanner = new Dietplanner(person);
+                //____________________________________________________________________________________________________________________________
+
+                    System.out.println(" ");
+                    System.out.println("Add your first meal");
+                    System.out.println("Press the number of the meal to include it for example 1 for meal1");
+                    int number1 = Integer.valueOf(scan.nextLine());
+
+                    
+
+                    for(int i =0; i<18; i++){
+                        if (number1 ==i+1){
                             demo = meall.get(i);
                         }
                     }
 
                     System.out.println(" ");
-                    System.out.println("Enter the amount of meal that you want to take according to your needs (eg for 5 grams enter 5.0 )" + "\n" + " check above the required card and the carb in various meal and then decide your amount");
-                    double amount3 = Double.parseDouble(scan.nextLine());
+                    System.out.println("Enter the amount of meal (eg for 5 grams enter 5.0 )" + "\n" + "You can use the chart above !!");
+                    double quantity1 = Double.parseDouble(scan.nextLine());
+                    System.out.println(" ");
+                    System.out.println(" ");
 
-                    System.out.println(CarbPlanner.setCarbDiet(demo, amount3)); 
+                    System.out.println(proteinPlanner.setProteinDiet(demo, quantity1)); 
 
                     System.out.println(" ");
 
 
-            
-                }
-                 
-                 
 
-            
+                //______________________________________________________________________________________________________________________________________
+
+                    System.out.println(" ");
+                    System.out.println("Add your next meal");
+                    int number2 = Integer.valueOf(scan.nextLine());
+
+                    
+
+                    for(int i =0; i<18; i++){
+                        if (number2 ==i+1){
+                            demo = meall.get(i);
+                        }
+                    }
+
+                    System.out.println(" ");
+                    System.out.println("Enter the amount of meal (eg for 5 grams enter 5.0 )\" + \"\\n" + //
+                            "\" + \"You can use the chart above !!");
+                    double quantity2 = Double.parseDouble(scan.nextLine());
+                    System.out.println(" ");
+                    System.out.println(" ");
+
+                    System.out.println(proteinPlanner.setProteinDiet(demo, quantity2)); 
+
+                    System.out.println(" ");
+
+                //_____________________________________________________________________________________________________________________________________
                 
+                
+                    System.out.println(" ");
+                    System.out.println("Add your next meal");
+                    int number3 = Integer.valueOf(scan.nextLine());
+
+                    
+
+                    for(int i =0; i<17; i++){
+                        if (number3 ==i+1){
+                            demo = meall.get(i);
+                        }
+                    }
+
+                    System.out.println(" ");
+                    System.out.println(" ");
+                    System.out.println("Enter the amount of meal (eg for 5 grams enter 5.0 )" );
+                  
+                    double quantity3= Double.parseDouble(scan.nextLine());
+                    System.out.println(" ");
+                    System.out.println(" ");
+
+                    System.out.println(proteinPlanner.setProteinDiet(demo, quantity3)); 
+
+                    System.out.println(" ");
+
+
+                //__________________________________________________________________________________________________________________________________
+
+                    System.out.println(" ");
+                    System.out.println("Add your next meal");
+                    int number4 = Integer.valueOf(scan.nextLine());
+
+                    
+
+                    for(int i =0; i<18; i++){
+                        if (number4 ==i+1){
+                            demo = meall.get(i);
+                        }
+                    }
+
+                    System.out.println(" ");
+                    System.out.println(" ");
+                    System.out.println("Enter the amount");
+                    double quantity4 = Double.parseDouble(scan.nextLine());
+                    System.out.println(" ");
+                    System.out.println(" ");
+
+                    System.out.println(proteinPlanner.setProteinDiet(demo, quantity4)); 
+
+                    System.out.println(" ");
+
+                
+            }else{
+                System.out.println("You can make your calorie diet plan!!");
+            }
 
 
 
-
-            System.out.println("let's now create your protein diet");
-            
+            System.out.println("Your Diet Plan is ready to be followed");
             System.out.println("  ");
-
+            System.out.println("  Stay fit and Healty  ");
+            System.out.println(" ");
+            System.out.println("Your Carb diet is : " + CarbPlanner);
+            System.out.println(" ");
+            System.out.println("Your Protein diet is : " + proteinPlanner);
             System.out.println(" ");
 
-            //______________________________________________________________________________________________________________________________
 
-             Dietplanner proteinPlanner = new Dietplanner(person);
-            //____________________________________________________________________________________________________________________________
+        
 
-                System.out.println(" ");
-                System.out.println("enter your first meal");
-                int number1 = Integer.valueOf(scan.nextLine());
-
-                
-
-                for(int i =0; i<18; i++){
-                    if (number1 ==i+1){
-                        demo = meall.get(i);
-                    }
-                }
-
-                System.out.println(" ");
-                System.out.println("Enter the amount of meal that you want to take according to your needs (eg for 5 grams enter 5.0 )" + "\n" + " check above the required card and the carb in various meal and then decide your amount");
-                double quantity1 = Double.parseDouble(scan.nextLine());
-
-                System.out.println(proteinPlanner.setProteinDiet(demo, quantity1)); 
-
-                System.out.println(" ");
+        
 
 
-
-            //______________________________________________________________________________________________________________________________________
-
-                System.out.println(" ");
-                System.out.println("enter your meal");
-                int number2 = Integer.valueOf(scan.nextLine());
-
-                
-
-                for(int i =0; i<18; i++){
-                    if (number2 ==i+1){
-                        demo = meall.get(i);
-                    }
-                }
-
-                System.out.println(" ");
-                System.out.println("Enter the amount of meal that you want to take according to your needs (eg for 5 grams enter 5.0 )" + "\n" + " check above the required card and the carb in various meal and then decide your amount");
-                double quantity2 = Double.parseDouble(scan.nextLine());
-
-                System.out.println(proteinPlanner.setProteinDiet(demo, quantity2)); 
-
-                System.out.println(" ");
-
-            //_____________________________________________________________________________________________________________________________________
-            
-            
-             System.out.println(" ");
-                System.out.println("enter your meal");
-                int number3 = Integer.valueOf(scan.nextLine());
-
-                
-
-                for(int i =0; i<17; i++){
-                    if (number3 ==i+1){
-                        demo = meall.get(i);
-                    }
-                }
-
-                System.out.println(" ");
-                System.out.println("Enter the amount of meal that you want to take according to your needs (eg for 5 grams enter 5.0 )" + "\n" + " check above the required card and the carb in various meal and then decide your amount");
-                double quantity3= Double.parseDouble(scan.nextLine());
-
-                System.out.println(proteinPlanner.setProteinDiet(demo, quantity3)); 
-
-                System.out.println(" ");
-
-
-            //__________________________________________________________________________________________________________________________________
-
-                 System.out.println(" ");
-                System.out.println("enter your meal");
-                int number4 = Integer.valueOf(scan.nextLine());
-
-                
-
-                for(int i =0; i<18; i++){
-                    if (number4 ==i+1){
-                        demo = meall.get(i);
-                    }
-                }
-
-                System.out.println(" ");
-                System.out.println("Enter the amount of meal that you want to take according to your needs (eg for 5 grams enter 5.0 )" + "\n" + " check above the required card and the carb in various meal and then decide your amount");
-                double quantity4 = Double.parseDouble(scan.nextLine());
-
-                System.out.println(proteinPlanner.setProteinDiet(demo, quantity4)); 
-
-                System.out.println(" ");
+           
                 
 
 

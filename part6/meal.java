@@ -120,7 +120,7 @@ public class meal {
 
 
     public String toString(){
-        return this.mealName + " has " + this.caloriesIn100Grams + " caloreis " + this.carbsIn100Grams + " carbs "+  this.proteinIn100Gram + " protein in 100 grams of the meal."; 
+        return this.mealName + " has " + this.caloriesIn100Grams + " 'Caloreis', " + this.carbsIn100Grams + " 'Carbs', "+  this.proteinIn100Gram + " 'Protein' in 100 grams of the meal."; 
     }
 
 

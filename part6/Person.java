@@ -90,18 +90,18 @@ public class Person {
     }
     public double protienReq(){
        if(this.actFact == 1.2){
-        return this.weight*0.36;
+        return this.weight*0.8;
 
        }else if (this.actFact == 1.375) {
-        return this.weight*0.55;
+        return this.weight*0.95;
         
        }else if (this.actFact == 1.55) {
-        return this.weight*0.7;
+        return this.weight*1.25;
        }else if (this.actFact == 1.735) {
-        return this.weight*0.9;
+        return this.weight*1.44;
 
        }else {
-        return this.weight*1.1;
+        return this.weight*1.6;
        }
     }
 
@@ -159,7 +159,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.name + " age " + this.age + " years" + "with the activity factor :"+ this.getactivityFactor() + "  " + "the basal metabolic rate is " + this.BMR + " the total calorie rrequirement is " + this.BMR*this.actFact + " grams " + " and the carbohydrates requirement of the person is " + this.BMR*this.actFact*0.5/4 + " grams" ;
+        return "Welcome "+ this.name + "\n" + " Your activity factor is : "+ this.getactivityFactor() + "\n  " + ". Your basal metabolic rate is " + this.BMR + " and the total calorie requirement is " + this.BMR*this.actFact + " Calories. "  ;
 
     }
     
