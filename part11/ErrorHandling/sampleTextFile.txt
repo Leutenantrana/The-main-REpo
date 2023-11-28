@@ -1,0 +1,3 @@
+The code below reads all lines from 
+"file.txt" and adds them to an ArrayList.
+ Reading a file might throw an exception, so it requires a try-catch block.

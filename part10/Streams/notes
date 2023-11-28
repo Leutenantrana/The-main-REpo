@@ -1,0 +1,58 @@
+.collect(Collectors.toCollection(ArrayList::new));
+this command is used st store output in a specific Data Structure..
+in this case  (ArrayList);;;
+
+2. .collect(Collectors.toList)
+is used to store the data in the same List element used before..
+
+(for example)
+
+List<Integer> list = new ArrayList<>();
+list.add(-3);
+list.add(7);
+list.add(-4);
+list.add(2);
+list.add(-6);
+
+List<Integer> values = list.stream()
+
+
+ARRAYS as lists
+
+(WAY1)
+
+=>  String[] fruitsArray = {"apple", "banana", "orange"};
+=> List<String> list = Arrays.asList(fruitsArray);
+
+(WAY2)
+
+=> List<Integer> list = Arrays.asList(!,2,3,4,5);
+
+
+OPTIONAL CLASS
+
+import java.util.Optional;
+
+public class OptionalExample {
+    public static void main(String[] args) {
+        // Creating an Optional with a non-null value
+        Optional<String> optionalValue = Optional.of("Hello, World!");
+
+        // Checking if a value is present
+        if (optionalValue.isPresent()) {
+            System.out.println("Value is present: " + optionalValue.get());
+        } else {
+            System.out.println("Value is absent.");
+        }
+
+        // Creating an Optional with a null value
+        Optional<String> emptyOptional = Optional.ofNullable(null);
+
+        // Checking if a value is present using ifPresent
+        emptyOptional.ifPresent(value -> System.out.println("Value is present: " + value));
+
+        // Providing a default value if the Optional is empty
+        String defaultValue = emptyOptional.orElse("Default Value");
+        System.out.println("Value or default: " + defaultValue);
+    }
+}
